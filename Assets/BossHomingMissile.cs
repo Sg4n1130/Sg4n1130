@@ -5,7 +5,7 @@ using UnityEngine;
 public class BossHomingMissile : MonoBehaviour
 {
     public float damage = 10f;
-    public float lifeTime = 5f;
+    public float lifeTime = 3f;
     public float speed = 7f;
     public float rotateSpeed = 200f;
     public float homingDelay = 0.5f;
@@ -13,7 +13,7 @@ public class BossHomingMissile : MonoBehaviour
     private Transform playerTarget;
     private Rigidbody2D rb;
     private float aliveTimer = 0f;
-
+     
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();

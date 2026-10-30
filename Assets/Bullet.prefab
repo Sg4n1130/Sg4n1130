@@ -171,6 +171,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHomingMissile
   damage: 10
-  lifeTime: 5
+  lifeTime: 3
   speed: 7
   rotateSpeed: 200
+  homingDelay: 0.5
