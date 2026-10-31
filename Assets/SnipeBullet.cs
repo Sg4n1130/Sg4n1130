@@ -8,8 +8,8 @@ using System.Collections;
 public class SnipeBullet : MonoBehaviour
 {
     public float damage = 10f;
-    public float bulletSpeed = 40f;
-    public float warningTime = 1.5f;
+    public float bulletSpeed = 50f;
+    public float warningTime = 0.8f;
 
     private Rigidbody2D rb;
     private LineRenderer lr;
@@ -37,13 +37,13 @@ public class SnipeBullet : MonoBehaviour
         while (timer < warningTime)
         {
             lr.SetPosition(0, transform.position);
-            lr.SetPosition(1, transform.position + transform.up * 50f);
+            lr.SetPosition(1, transform.position + transform.up * 60f);
 
             lr.enabled = isBlinking;
             isBlinking = !isBlinking;
 
-            yield return new WaitForSeconds(0.1f);
-            timer += 0.1f;
+            yield return new WaitForSeconds(0.05f);
+            timer += 0.05f;
         }
 
         lr.enabled = false;

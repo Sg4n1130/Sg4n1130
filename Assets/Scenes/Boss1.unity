@@ -388,6 +388,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5324afad5fb103b43bea230f6676a92d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerDummy
+  speed: 8
+  maxHp: 500
 --- !u!50 &1678939763
 Rigidbody2D:
   serializedVersion: 5
@@ -449,7 +451,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: -0.104436874, y: 0}
+  m_Offset: {x: 0.08856702, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -459,7 +461,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 0.79112625, y: 1}
+  m_Size: {x: 1.177134, y: 1}
   m_EdgeRadius: 0
 --- !u!4 &1678939765
 Transform:
@@ -511,6 +513,9 @@ MonoBehaviour:
   maxHp: 100
   bulletPrefab: {fileID: 1735380927311639909, guid: 939e6cbd54db1bb4b86b55dd0f8c6056, type: 3}
   firePoint: {fileID: 1878371080}
+  bulletSpeed: 15
+  moveSpeed: 1
+  moveDistance: 2.5
 --- !u!50 &1782115858
 Rigidbody2D:
   serializedVersion: 5

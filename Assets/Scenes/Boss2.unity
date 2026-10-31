@@ -287,9 +287,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e6346c65ba9f18d47b46f11bb87b8edd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2Boss
-  maxHp: 200
+  maxHp: 150
   bulletPrefab: {fileID: 1735380927311639909, guid: 939e6cbd54db1bb4b86b55dd0f8c6056, type: 3}
   firePoint: {fileID: 1946619082}
+  moveSpeed: 1
+  moveDistance: 3
 --- !u!50 &1136383584
 Rigidbody2D:
   serializedVersion: 5
@@ -305,7 +307,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDamping: 0
   m_AngularDamping: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -389,7 +391,8 @@ Transform:
   m_LocalPosition: {x: 0.05, y: 3.64, z: 0}
   m_LocalScale: {x: 2.2107, y: 2.2458, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 1946619082}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1940393538
@@ -490,12 +493,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1946619081}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.01, y: 2.5, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.027140725, y: -0.50761425, z: 0}
+  m_LocalScale: {x: 0.4523454, y: 0.4452756, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1136383586}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
@@ -504,4 +507,3 @@ SceneRoots:
   - {fileID: 409612387}
   - {fileID: 1136383586}
   - {fileID: 1940393540}
-  - {fileID: 1946619082}

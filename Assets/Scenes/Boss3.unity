@@ -441,6 +441,8 @@ MonoBehaviour:
   boomerangPrefab: {fileID: 8419048826027439099, guid: 471a902e1dd834f4d94ba6a279769222, type: 3}
   firePoint: {fileID: 1750966464}
   normalBulletSpeed: 10
+  moveSpeed: 0.5
+  moveDistance: 4
 --- !u!212 &1753316789
 SpriteRenderer:
   serializedVersion: 3

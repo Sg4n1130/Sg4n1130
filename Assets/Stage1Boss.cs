@@ -10,6 +10,12 @@ public class Stage1Boss : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform firePoint;
 
+    public float bulletSpeed = 15f;
+
+    public float moveSpeed = 1f;
+    public float moveDistance = 2.5f;
+    private Vector3 startPos;
+
     private bool isDead = false;
     private Rigidbody2D rb;
     private Transform playerTransform;
@@ -20,13 +26,28 @@ public class Stage1Boss : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         rb.bodyType = RigidbodyType2D.Kinematic;
 
+        startPos = transform.position;
+
+        FindPlayer();
+
+        StartCoroutine(BossPatternRoutine());
+    }
+
+    void Update()
+    {
+        if (isDead) return;
+
+        float newX = startPos.x + Mathf.Sin(Time.time * moveSpeed) * moveDistance;
+        transform.position = new Vector3(newX, transform.position.y, transform.position.z);
+    }
+
+    void FindPlayer()
+    {
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
             playerTransform = playerObj.transform;
         }
-
-        StartCoroutine(BossPatternRoutine());
     }
 
     IEnumerator BossPatternRoutine()
@@ -36,7 +57,7 @@ public class Stage1Boss : MonoBehaviour
         while (!isDead)
         {
             yield return StartCoroutine(PatternTargetShoot());
-            yield return new WaitForSeconds(3.0f);
+            yield return new WaitForSeconds(1.0f);
 
             yield return StartCoroutine(PatternCircleShoot());
             yield return new WaitForSeconds(1.0f);
@@ -49,15 +70,25 @@ public class Stage1Boss : MonoBehaviour
 
         for (int i = 0; i < 3; i++)
         {
-            if (playerTransform == null || !playerTransform.gameObject.activeInHierarchy) yield break;
+            if (playerTransform == null || !playerTransform.gameObject.activeInHierarchy)
+            {
+                FindPlayer();
+            }
 
-            Vector2 direction = playerTransform.position - firePoint.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-            Quaternion rotation = Quaternion.Euler(0, 0, angle);
+            if (playerTransform != null && playerTransform.gameObject.activeInHierarchy)
+            {
+                Vector2 direction = playerTransform.position - firePoint.position;
+                float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
+                Quaternion rotation = Quaternion.Euler(0, 0, angle);
 
-            Instantiate(bulletPrefab, firePoint.position, rotation);
+                GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
 
-            yield return new WaitForSeconds(0.5f);
+                Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+                if (bulletRb != null) bulletRb.linearVelocity = bullet.transform.up * bulletSpeed;
+                Destroy(bullet, 5f);
+            }
+
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
@@ -73,7 +104,11 @@ public class Stage1Boss : MonoBehaviour
             float currentAngle = i * angleStep;
             Quaternion rotation = Quaternion.Euler(0, 0, currentAngle);
 
-            Instantiate(bulletPrefab, firePoint.position, rotation);
+            GameObject bullet = Instantiate(bulletPrefab, firePoint.position, rotation);
+
+            Rigidbody2D bulletRb = bullet.GetComponent<Rigidbody2D>();
+            if (bulletRb != null) bulletRb.linearVelocity = bullet.transform.up * bulletSpeed;
+            Destroy(bullet, 5f);
         }
 
         yield return null;
