@@ -371,7 +371,7 @@ Transform:
   m_GameObject: {fileID: 1750966463}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.5, z: 0}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -404,7 +404,7 @@ Rigidbody2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1753316786}
-  m_BodyType: 0
+  m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
@@ -435,13 +435,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 142c22abccbfe1e48b88a3ce8ce9518e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage3Boss
-  normalBulletPrefab: {fileID: 1735380927311639909, guid: 939e6cbd54db1bb4b86b55dd0f8c6056, type: 3}
-  stalkerMissilePrefab: {fileID: 1735380927311639909, guid: 939e6cbd54db1bb4b86b55dd0f8c6056, type: 3}
+  maxHp: 300
+  phase2Sprite: {fileID: -6528326903946347523, guid: b07826b3b6c22074e90f3c96f178abe8, type: 3}
+  normalBulletPrefab: {fileID: 1735380927311639909, guid: 6aba81b3a7552bb4b8f4849bdee7a823, type: 3}
+  stalkerMissilePrefab: {fileID: 1735380927311639909, guid: 6aba81b3a7552bb4b8f4849bdee7a823, type: 3}
   fastLaserPrefab: {fileID: 3325813397551830227, guid: 8717fb4d49dbe584bada344256f4d3e1, type: 3}
   boomerangPrefab: {fileID: 8419048826027439099, guid: 471a902e1dd834f4d94ba6a279769222, type: 3}
   firePoint: {fileID: 1750966464}
   normalBulletSpeed: 10
+  phase2BulletSpeed: 25
   moveSpeed: 0.5
+  phase2MoveSpeed: 3
   moveDistance: 4
 --- !u!212 &1753316789
 SpriteRenderer:
@@ -492,7 +496,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: 2749336523888890881, guid: dc31f82fce3e37f4b81127572274cf6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -512,8 +516,8 @@ Transform:
   m_GameObject: {fileID: 1753316786}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.25, z: 0}
-  m_LocalScale: {x: 3.2634, y: 3.2283, z: 1}
+  m_LocalPosition: {x: 0.23, y: 2.39, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 6}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1750966464}

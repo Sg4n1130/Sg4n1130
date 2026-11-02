@@ -288,9 +288,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Stage2Boss
   maxHp: 150
+  phase2Sprite: {fileID: 7863477865700277253, guid: dc31f82fce3e37f4b81127572274cf6f, type: 3}
   bulletPrefab: {fileID: 1735380927311639909, guid: 939e6cbd54db1bb4b86b55dd0f8c6056, type: 3}
   firePoint: {fileID: 1946619082}
+  bulletSpeed: 10
+  phase2BulletSpeed: 18
   moveSpeed: 1
+  phase2MoveSpeed: 2
   moveDistance: 3
 --- !u!50 &1136383584
 Rigidbody2D:
@@ -368,7 +372,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Sprite: {fileID: -6239074346997327397, guid: dc31f82fce3e37f4b81127572274cf6f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -388,8 +392,8 @@ Transform:
   m_GameObject: {fileID: 1136383582}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.05, y: 3.64, z: 0}
-  m_LocalScale: {x: 2.2107, y: 2.2458, z: 1}
+  m_LocalPosition: {x: 0.02, y: 1.9, z: 0}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1946619082}
